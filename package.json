@@ -1,0 +1,22 @@
+{
+  "name": "cak3dbot",
+  "version": "1.0.0",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "keywords": [],
+  "author": "CAK3D",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@discordjs/rest": "^2.4.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.107",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "git": "^0.1.5",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.3"
+  }
+}
