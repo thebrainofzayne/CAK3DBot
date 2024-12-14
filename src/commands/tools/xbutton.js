@@ -16,6 +16,7 @@ module.exports = {
       .setStyle(ButtonStyle.Primary);
 
     await interaction.reply({
+      content: "Click the button below to vist the link!",
       components: [new ActionRowBuilder().addComponents(button)],
     });
   },

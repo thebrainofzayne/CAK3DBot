@@ -5,9 +5,9 @@ module.exports = (client) => {
     const currentTime = new Date().toLocaleString();
     const guild = client.guilds.cache.first();
     if (!guild) {
-        console.log("Bot is not in any guild!");
-        return;
-      }
+      console.log("Bot is not in any guild!");
+      return;
+    }
     const options = [
       {
         type: ActivityType.Watching,
