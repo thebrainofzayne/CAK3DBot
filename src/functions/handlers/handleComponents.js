@@ -1,37 +1,63 @@
 const { readdirSync } = require("fs");
+const chalk = require("chalk");
 
 module.exports = (client) => {
   client.handleComponents = async () => {
-    const componentFolders = readdirSync(`./src/components`);
+    const componentFolders = readdirSync(`./src/Components`);
     for (const folder of componentFolders) {
-      const componentFiles = readdirSync(`./src/components/${folder}`).filter(
+      const componentFiles = readdirSync(`./src/Components/${folder}`).filter(
         (file) => file.endsWith(".js")
       );
 
-      const { buttons, selectMenus, modals} = client;
+      const { buttons, selectMenus, modals } = client;
 
       switch (folder) {
-        case "buttons":
+        case "Buttons":
           for (const file of componentFiles) {
-            const button = require(`../../components/${folder}/${file}`);
-            buttons.set(button.data, button);
-            console.log(file);
+            const button = require(`../../Components/${folder}/${file}`);
+            // Error handling for button data
+            if (button && button.data && button.data.name) {
+              buttons.set(button.data.name, button);
+            } else {
+              console.error(
+                chalk.yellow(
+                  `[Button Warning]: Button or Data is undefined or missing:`
+                ),
+                button
+              );
+            }
+
+            console.log(
+              chalk.blueBright(
+                `Button: ${button.data.name} has been passed through the handler`
+              )
+            );
           }
           break;
 
-        case "selectMenus":
+        case "SelectMenus":
           for (const file of componentFiles) {
-            const menu = require(`../../components/${folder}/${file}`);
-            selectMenus.set(menu.data, menu);
-            }
-            break;
+            const menu = require(`../../Components/${folder}/${file}`);
+            selectMenus.set(menu.data.name, menu);
+            console.log(
+              chalk.greenBright(
+                `SelectMenu: ${menu.data.name} has been passed through the handler`
+              )
+            );
+          }
+          break;
 
-            case "modals":  
-            for (const file of componentFiles) {
-              const modal = require(`../../components/${folder}/${file}`);
-              modals.set(modal.data, modal);
-            }
-            break;
+        case "Modals":
+          for (const file of componentFiles) {
+            const modal = require(`../../Components/${folder}/${file}`);
+            modals.set(modal.data.name, modal);
+            console.log(
+              chalk.magentaBright(
+                `Modal: ${modal.data.name} has been passed through the handler`
+              )
+            );
+          }
+          break;
 
         default:
           break;

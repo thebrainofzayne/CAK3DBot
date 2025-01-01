@@ -3,15 +3,15 @@ const { connection } = require("mongoose");
 
 module.exports = (client) => {
   client.handleEvents = async () => {
-    const eventFolders = fs.readdirSync(`./src/events`);
+    const eventFolders = fs.readdirSync(`./src/Events`);
     for (const folder of eventFolders) {
       const eventFiles = fs
-        .readdirSync(`./src/events/${folder}`)
+        .readdirSync(`./src/Events/${folder}`)
         .filter((file) => file.endsWith(".js"));
       switch (folder) {
         case "client":
           for (const file of eventFiles) {
-            const event = require(`../../events/${folder}/${file}`);
+            const event = require(`../../Events/${folder}/${file}`);
             if (event.once)
               client.once(event.name, (...args) =>
                 event.execute(...args, client)
@@ -25,7 +25,7 @@ module.exports = (client) => {
 
         case "mongo":
           for (const file of eventFiles) {
-            const event = require(`../../events/${folder}/${file}`);
+            const event = require(`../../Events/${folder}/${file}`);
             if (event.once)
               connection.once(event.name, (...args) =>
                 event.execute(...args, client)

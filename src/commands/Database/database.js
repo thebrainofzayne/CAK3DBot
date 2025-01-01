@@ -1,6 +1,6 @@
-console.log(require.resolve("../../schemas/guild"));
+console.log(require.resolve("../../Schemas/guild"));
 const path = require("path");
-const Guild = require(path.resolve(__dirname, "../../schemas/guild"));
+const Guild = require(path.resolve(__dirname, "../../Schemas/guild"));
 const { SlashCommandBuilder, SlashCommandAssertions } = require("discord.js");
 const mongoose = require("mongoose");
 
@@ -15,7 +15,8 @@ module.exports = {
         _id: new mongoose.Types.ObjectId(),
         guildId: interaction.guild.id,
         guildName: interaction.guild.name,
-        guildIcon: interaction.guild.iconURL()
+        guildIcon: interaction.guild.iconURL() ? interaction.guild.iconURL() : "None.",
+        guildOwner: interaction.guildOwner
           ? interaction.guild.iconURL()
           : "None.",
       });

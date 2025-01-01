@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
     const embed = new EmbedBuilder()
       .setTitle(`This is an EMBED!`)
       .setDescription(`This is an EMBED DESCRIPTION`)
-      .setColor(0x18e1ee)
+      .setColor(client.color)
       .setImage(client.user.displayAvatarURL())
       .setThumbnail(client.user.displayAvatarURL())
       .setTimestamp(Date.now())

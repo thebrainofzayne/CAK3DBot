@@ -1,12 +1,11 @@
-const { StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
+const { StringSelectMenuBuilder } = require('discord.js');
 
 module.exports = {
   data: {
     customId: 'actionMenu',
-    type: 1,  // Action row type
+    type: 3,
   },
-
-  async execute(interaction) {
+  execute(interaction) {
     const menu = new StringSelectMenuBuilder()
       .setCustomId('actionMenu')
       .setPlaceholder('Select an action')
@@ -16,9 +15,6 @@ module.exports = {
         { label: 'Order', value: 'order' },
       ]);
 
-    // Create an action row with the select menu
-    const row = new ActionRowBuilder().addComponents(menu);
-
-    return interaction.update({ components: [row] });
+    return interaction.update({ components: [menu] });
   },
 };

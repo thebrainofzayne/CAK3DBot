@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const StockRequest = require('../../schemas/stockRequest');
+const StockRequest = require('../../Schemas/StockRequest');
 
 module.exports = {
   data: new SlashCommandBuilder()

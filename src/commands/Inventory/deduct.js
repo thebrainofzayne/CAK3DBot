@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const InventoryItem = require('../../schemas/inventoryItem');
+const InventoryItem = require('../../Schemas/InventoryItem');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -23,21 +23,13 @@ module.exports = {
       return interaction.reply("Item not found.");
     }
 
-    if (amount <= 0) {
-      return interaction.reply("You must deduct a positive amount.");
-    }
-
     if (item.currentStock - amount < item.minStock) {
       return interaction.reply("Cannot deduct below minimum stock level.");
     }
 
-    try {
-      item.currentStock -= amount;
-      await item.save();
-      return interaction.reply(`${amount} ${itemName} deducted from inventory.`);
-    } catch (error) {
-      console.error(error);
-      return interaction.reply("An error occurred while updating the inventory.");
-    }
+    item.currentStock -= amount;
+    await item.save();
+
+    return interaction.reply(`${amount} ${itemName} deducted from inventory.`);
   },
 };

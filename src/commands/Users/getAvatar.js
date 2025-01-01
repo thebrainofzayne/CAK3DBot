@@ -17,7 +17,7 @@ module.exports = {
         .setFooter({ text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL() });
 
       await interaction.reply({
-        content: `Here is the avatar of **${interaction.targetUser.username}**:`,
+        content: `Here is the avatar you requested:`,
         embeds: [avatarEmbed],
       });
     } catch (error) {

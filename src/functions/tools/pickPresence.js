@@ -1,4 +1,5 @@
 const { ActivityType } = require("discord.js");
+const chalk = require("chalk");
 
 module.exports = (client) => {
   client.pickPresence = async () => {
@@ -51,6 +52,6 @@ module.exports = (client) => {
       ],
       status: options[option].status,
     });
-    console.log(`Bot updated presence for ${guild.name} at ${currentTime}`);
+    console.log(chalk.bgMagenta(`Bot updated presence for ${guild.name} at ${currentTime}`));
   };
 };

@@ -1,7 +1,8 @@
-const InventoryItem = require('../../schemas/inventoryItem'); // Import the schema
+const InventoryItem = require('../../Schemas/InventoryItem'); // Import the schema
 
 module.exports = {
   data: {
+    name: 'delete-item-select',
     customId: 'delete-item-select',
   },
 

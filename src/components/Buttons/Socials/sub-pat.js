@@ -1,10 +1,10 @@
 module.exports = {
-  date: {
-    name: `sub-dis`,
+  data: {
+    name: `sub-pat`,
   },
   async execute(interaction, client) {
     await interaction.reply({
-      content: `discord.gg/dkf37h7Ks6`,
+      content: `https://www.patreon.com/CAK3D`,
     });
   },
 };

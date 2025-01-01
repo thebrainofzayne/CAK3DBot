@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const InventoryItem = require('../../schemas/inventoryItem');
+const InventoryItem = require('../../Schemas/InventoryItem');
 
 module.exports = {
   data: new SlashCommandBuilder()

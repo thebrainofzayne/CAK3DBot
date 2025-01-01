@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder } = require('discord.js');
-const InventoryItem = require('../../schemas/inventoryItem');
-const StockRequest = require('../../schemas/stockRequest'); // Make sure you import StockRequest schema
+const InventoryItem = require('../../Schemas/InventoryItem');
+const StockRequest = require('../../Schemas/StockRequest'); // Make sure you import StockRequest schema
 
 // Store current page for each user
 const currentPages = new Map();
@@ -140,3 +140,6 @@ module.exports = {
     }
   },
 };
+
+
+

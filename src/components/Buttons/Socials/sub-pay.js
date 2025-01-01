@@ -1,5 +1,5 @@
 module.exports = {
-  date: {
+  data: {
     name: `sub-pay`,
   },
   async execute(interaction, client) {

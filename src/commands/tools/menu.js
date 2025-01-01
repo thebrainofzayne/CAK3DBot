@@ -8,13 +8,13 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("menu")
-    .setDescription("Returnes a select Menu!"),
+    .setDescription("Returns a select Menu!"),
   async execute(interaction, client) {
     const menu = new StringSelectMenuBuilder()
       .setCustomId("sub-menu")
       .setMinValues(1)
       .setMaxValues(1)
-      .addOptions(
+      .setOptions(
         new StringSelectMenuOptionBuilder({
           label: `Option 1`,
           value: `https://x.com/_CAK3D_`,
@@ -24,7 +24,6 @@ module.exports = {
           value: `https://paypal.me/CAK3D?country.x=US&locale.x=en_US`,
         })
       );
-
     await interaction.reply({
       components: [new ActionRowBuilder().addComponents(menu)],
     });

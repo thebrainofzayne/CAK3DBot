@@ -1,5 +1,5 @@
 module.exports = {
-  date: {
+  data: {
     name: `sub-fb`,
   },
   async execute(interaction, client) {
